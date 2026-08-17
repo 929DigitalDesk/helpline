@@ -494,7 +494,8 @@
         
         <div class="form-header">
             <div class="logo-wrapper">
- <img src="logo_6.png" alt="929 Digital Desk Logo" class="main-logo-img">
+                <!-- Cleaned up the logo tag to prevent security blocking -->
+                <img src="logo_6.png" alt="929 Digital Desk Logo" class="main-logo-img">
             </div>
             
             <div class="contact-badges-wrapper">
@@ -518,20 +519,24 @@
             <button type="button" class="plans-trigger-btn" onclick="toggleModal('plansModal', true)">
                 📋 PLANS & RULES
             </button>
-            <a href="https://wa.me/+15559565917" target="_blank" class="whatsapp-direct-btn">
+            
+            <!-- Updated WhatsApp Button to trigger app properly -->
+            <a href="https://wa.me/15559565917" target="_blank" rel="noopener noreferrer" class="whatsapp-direct-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
                     <path fill-rule="evenodd" d="M12 3a8.5 8.5 0 0 0-8.5 8.5c0 1.835.58 3.532 1.568 4.92.227.319.283.69.304.926.023.27.012.562-.014.844A15.032 15.032 0 0 1 5.055 20L5 20.24l.312-.127a17.83 17.83 0 0 1 1.785-.623 5.67 5.67 0 0 1 .83-.173c.228-.027.595-.05.942.088A8.475 8.475 0 0 0 12 20a8.5 8.5 0 0 0 0-17ZM2.543 21.709l.003-.01.01-.033a22.762 22.762 0 0 0 .173-.606c.11-.4.25-.936.373-1.492.124-.562.225-1.116.264-1.557a2.994 2.994 0 0 0 .01-.52A10.456 10.456 0 0 1 1.5 11.5C1.5 5.701 6.201 1 12 1s10.5 4.701 10.5 10.5S17.799 22 12 22a10.47 10.47 0 0 1-3.782-.702c-.015 0-.035.003-.059.005-.123.015-.3.051-.53.115a15.92 15.92 0 0 0-1.574.552 37.308 37.308 0 0 0-1.95.85l-.129.06-.033.016-.01.005a1 1 0 0 1-1.39-1.192Zm5.715-.412h-.002.002Z" clip-rule="evenodd"></path>
                     <path d="M16.885 13.823c-.042-.02-1.616-.795-1.895-.896a1.089 1.089 0 0 0-.367-.081c-.212 0-.391.106-.53.314-.157.233-.633.79-.78.956-.02.022-.046.048-.062.048-.014 0-.257-.1-.33-.132-1.69-.733-2.971-2.497-3.147-2.795-.025-.042-.026-.062-.026-.062a.492.492 0 0 1 .092-.109c.086-.085.179-.196.269-.305.042-.05.085-.102.127-.15.13-.152.188-.27.255-.406l.036-.071a.732.732 0 0 0-.022-.691c-.037-.075-.702-1.679-.772-1.847C9.563 7.189 9.338 7 9.026 7c-.029 0 0 0-.121.005-.148.006-.953.112-1.309.337-.377.238-1.016.996-1.016 2.33 0 1.201.762 2.335 1.09 2.766l.044.065c1.253 1.83 2.814 3.185 4.398 3.818 1.524.609 2.246.679 2.656.679.173 0 .31-.014.432-.026l.078-.007c.526-.047 1.684-.646 1.947-1.378.207-.576.262-1.205.124-1.434-.095-.155-.258-.233-.464-.332Z"></path>
                 </svg>
                 WhatsApp
             </a>
-            <button type="button" class="chat-agent-btn" id="chatAgentBtn" onclick="startAgentChat()">
+            
+            <!-- Updated Support Button to open Jotform link directly -->
+            <a href="https://agent.jotform.com/019699601c1575a9b097fc67705cb07a09b3" target="_blank" rel="noopener noreferrer" class="chat-agent-btn">
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                 </svg>
                 CUSTOMER SUPPORT
-            <button>
-<https://agent.jotform.com/019699601c1575a9b097fc67705cb07a09b3>        </div>
+            </a>
+        </div>
 
         <form id="registrationForm">
             <div class="grid-form">
@@ -825,41 +830,6 @@
                 if(event) event.preventDefault();
                 document.getElementById(modalId).style.display = show ? 'flex' : 'none';
             } catch(e) {}
-        }
-
-        // Fortified Script Loader for the AI Chat Agent
-        function startAgentChat() {
-            try {
-                if(event) event.preventDefault();
-                const btn = document.getElementById("chatAgentBtn");
-                btn.innerHTML = "⏳ Loading...";
-                btn.disabled = true;
-                
-                var script = document.createElement('script');
-                script.src = "https://cdn.jotfor.ms/agent/embedjs/019699601c1575a9b097fc67705cb07a09b3/embed.js";
-                script.async = true;
-                script.crossOrigin = "anonymous";
-                
-                script.onload = () => {
-                    try {
-                        btn.innerHTML = "✅ Chat Started";
-                        setTimeout(() => { btn.style.display = 'none'; }, 2000); 
-                    } catch(e) {}
-                };
-                
-                script.onerror = () => {
-                    try {
-                        btn.innerHTML = "❌ Fallback Support";
-                        btn.disabled = false;
-                        showNotification("Live chat unavailable. Opening WhatsApp support...");
-                        setTimeout(() => { window.open("https://wa.me/15559565917", "_blank"); }, 1500);
-                    } catch(e) {}
-                };
-                
-                document.body.appendChild(script);
-            } catch(e) {
-                showNotification("Could not start chat. Try contacting via WhatsApp.");
-            }
         }
 
         function checkCourseOther() {
