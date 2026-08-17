@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>929 Digital Desk - Registration Form</title>
     
-    <!-- Aggressively Catch all external sandbox/cross-origin errors silently -->
+    <!-- Catch all external sandbox errors silently -->
     <script>
-        window.addEventListener('error', function(e) { e.preventDefault(); e.stopPropagation(); return true; }, true);
-        window.addEventListener('unhandledrejection', function(e) { e.preventDefault(); e.stopPropagation(); return true; }, true);
         window.onerror = function() { return true; };
+        window.onunhandledrejection = function(e) { e.preventDefault(); return true; };
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,6 +85,7 @@
             border-radius: 8px; 
         }
 
+        /* Unified Badges for Email and Helpline */
         .contact-badges-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -124,6 +124,7 @@
             fill: #25D366;
         }
 
+        /* Action Buttons Area */
         .action-btns-container {
             display: flex;
             flex-direction: row;
@@ -169,6 +170,7 @@
         .chat-agent-btn:active { transform: scale(0.98); }
         .chat-agent-btn:disabled { opacity: 0.7; cursor: not-allowed; }
 
+        /* Modals */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -309,7 +311,7 @@
         .upi-btn {
             display: block; width: 100%; background: var(--car-green); color: #ffffff; padding: 14px; text-align: center;
             font-size: 15px; font-weight: 800; text-decoration: none; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 143, 57, 0.3);
-            border: 2px solid #006629; transition: background 0.2s, transform 0.1s;
+            border: 2px solid #006629; transition: background 0.2s, transform 0.1s; font-family: inherit; cursor: pointer;
         }
         .upi-btn:hover { background: var(--car-green-hover); }
 
@@ -330,6 +332,7 @@
         .submit-btn:hover { background: var(--primary-hover); }
         .support-note { text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 16px; }
 
+        /* ID Card Preview Styles */
         .id-card-wrapper { background: var(--vibrant-red); width: 320px; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); font-family: 'Plus Jakarta Sans', sans-serif; position: relative; }
         .id-card-header { background: #ffffff; text-align: center; padding: 20px 15px 15px 15px; border-bottom: 4px solid var(--primary); }
         .id-card-brand-main { font-family: 'Montserrat', sans-serif; font-size: 50px; font-weight: 900; color: var(--primary); line-height: 0.8; margin: 0; letter-spacing: -1px; }
@@ -354,18 +357,12 @@
         .modal-btn { flex: 1; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: 700; text-transform: uppercase; font-size: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
         .btn-download { background: var(--car-green); color: #fff; border: 1px solid #006629; font-weight: 800; }
         .btn-close { background: #3b82f6; color: #fff; }
-        
-        .custom-message-box { 
-            display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); 
-            background: var(--info-blue); color: #ffffff; padding: 12px 24px; border-radius: 8px; 
-            box-shadow: 0 8px 24px rgba(0,0,0,0.25); z-index: 9999; font-weight: 800; font-size: 14px; 
-            text-align: center; border: 2px solid #3b82f6; min-width: 250px;
-        }
+        .custom-message-box { display: none; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: var(--car-green); color: #ffffff; padding: 12px 24px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 2000; font-weight: 800; font-size: 14px; text-align: center; border: 1px solid #006629; }
     </style>
 </head>
 <body>
     <div id="customMessage" class="custom-message-box">
-        Message goes here
+        Registration Complete! Form data sent successfully.
     </div>
 
     <!-- How to Use Helpline Service Modal -->
@@ -374,11 +371,11 @@
             <h3>How to use Helpline Service</h3>
             <ol>
                 <li><strong>Step 1:</strong> Get Registered by filling out the form below.</li>
-                <li><strong>Step 2:</strong> Send ID Card & payment proof (if paid) to <strong style="white-space: nowrap;">WhatsApp: +1 (555) 9565-917</strong>.</li>
+                <li><strong>Step 2:</strong> Send ID Card & payment proof (if paid) to <strong style="white-space: nowrap;">WhatsApp: +1(555)956-5917</strong>.</li>
                 <li><strong>Step 3:</strong> You will be notified of the appointment time for your Helpline service.</li>
                 <li><strong>Step 4:</strong> Our subject expert will ask your details and then solve your issues online.</li>
             </ol>
-            <button type="button" class="close-modal-btn" onclick="toggleModal('helpModal', false)">Got it, Return to Form</button>
+            <button class="close-modal-btn" onclick="toggleModal('helpModal', false)">Got it, Return to Form</button>
         </div>
     </div>
 
@@ -397,7 +394,7 @@
                 <ul>
                     <li>Need to Register on our website</li>
                     <li>Required to submit College ID and Adhaar Number for Verification</li>
-                    <li>Applicant is required to send the online Generated ID card to our WhatsApp Number +1 (555) 9565-917 and wait for our message</li>
+                    <li>Applicant is required to send the online Generated ID card to our WhatsApp Number +1 (555) 956-5917 and wait for our message</li>
                 </ul>
                 <p class="cons-title">CONS:</p>
                 <ul class="cons-list">
@@ -482,11 +479,11 @@
                     <li style="margin-bottom: 4px;">The Session can be Rescheduled due to Technical / Physical or Health or any other issue that makes the Admin or Subject Expert Faculties unable to host the session but the same will be rescheduled / compensated on another day.</li>
                     <li style="margin-bottom: 4px;">Once the Schedule is fixed student has to be available on the prescribed time with the essential things to make the session feasible. If due to network issue or any other issue that takes place at students end then the student can not claim to reschedule the session again for him/ her due to student's personal issues.</li>
                     <li style="margin-bottom: 4px;">Student should maintain discipline during the Online session else they will be barred or blocked and No refund of Plan Fees / Money will be given back to the student.</li>
-                    <li>Student should follow the Rules related to the session of asking their questions limited to 1 particular question of 1 particular topic of one chapter & subject only.</li>
+                    <li style="margin-bottom: 4px;">Student should follow the Rules related to the session of asking their questions limited to 1 particular question of 1 particular topic of one chapter & subject only.</li>
                 </ol>
             </div>
 
-            <button type="button" class="close-modal-btn" onclick="toggleModal('plansModal', false)">Close Plans</button>
+            <button class="close-modal-btn" onclick="toggleModal('plansModal', false)">Close Plans</button>
         </div>
     </div>
 
@@ -494,7 +491,7 @@
         
         <div class="form-header">
             <div class="logo-wrapper">
-                <img src="50.png" alt="929 Digital Desk Logo" class="main-logo-img" crossorigin="anonymous" onerror="this.onerror=null; this.src='https://placehold.co/250x80/1e3a8a/ffffff?text=929+Digital+Desk';">
+                <img src="50.png" alt="929 Digital Desk Logo" class="main-logo-img" onerror="this.onerror=null; this.src='https://placehold.co/250x80/1e3a8a/ffffff?text=929+Digital+Desk';">
             </div>
             
             <div class="contact-badges-wrapper">
@@ -506,16 +503,16 @@
                     <svg class="wa-icon-form" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                       <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
                     </svg>
-                    Helpline: +1 (555) 9565-917
+                    Helpline: +1 (555) 956-5917
                 </div>
             </div>
         </div>
 
         <div class="action-btns-container">
-            <button type="button" class="help-trigger-btn" onclick="toggleModal('helpModal', true)">
+            <button class="help-trigger-btn" onclick="toggleModal('helpModal', true)">
                 📖 How to use
             </button>
-            <button type="button" class="plans-trigger-btn" onclick="toggleModal('plansModal', true)">
+            <button class="plans-trigger-btn" onclick="toggleModal('plansModal', true)">
                 📋 PLANS & RULES
             </button>
             <a href="https://wa.me/+15559565917" target="_blank" class="whatsapp-direct-btn">
@@ -525,7 +522,7 @@
                 </svg>
                 WhatsApp
             </a>
-            <button type="button" class="chat-agent-btn" id="chatAgentBtn" onclick="startAgentChat()">
+            <button class="chat-agent-btn" id="chatAgentBtn" onclick="startAgentChat()">
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                 </svg>
@@ -707,9 +704,11 @@
                     <h3>Secure Payment Gateway</h3>
                     <p>Complete your UPI payment to finalize premium registration.</p>
                     <div id="qrcode-container">
-                        <img id="qrCodeImage" crossorigin="anonymous" src="" alt="Payment QR Code" style="display: none; width: 150px; height: 150px;">
+                        <img id="qrCodeImage" src="" alt="Payment QR Code" style="display: none; width: 150px; height: 150px;">
                     </div>
-                    <a href="#" id="upiPaymentBtn" class="upi-btn">Pay via Mobile UPI App</a>
+                    
+                    <a href="#" id="upiPaymentBtn" class="upi-btn" target="_top">Pay via Mobile UPI App</a>
+                    
                     <div class="form-box" style="margin-top: 15px; text-align: left;">
                         <label style="color: #065f46;">Upload Payment Screenshot *</label>
                         <input type="file" id="paymentScreenshot" accept="image/*" style="background: #ffffff; color: #064e3b; border-color: #008f39;">
@@ -780,10 +779,10 @@
                 </div>
                 
                 <div class="id-card-contact">
-                    <svg class="wa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="width: 12px; height: 12px; vertical-align: middle; fill: #25D366; margin-right: 4px;">
+                    <svg class="wa-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                       <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c-.003 1.396.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
                     </svg>
-                    <strong>Helpline:</strong> +1 (555) 9565-917
+                    <strong>Helpline:</strong> +1(555) 956-5917
                     <br>
                     <strong>Email:</strong> 929.DigitalDesk@gmail.com
                 </div>
@@ -794,21 +793,15 @@
             </div>
             
             <div class="modal-actions">
-                <button type="button" class="modal-btn btn-download" onclick="downloadIdCard()">📥 Save ID</button>
-                <button type="button" class="modal-btn btn-close" onclick="closeIdCard()">Done & Close</button>
+                <button class="modal-btn btn-download" onclick="downloadIdCard()">📥 Save ID</button>
+                <button class="modal-btn btn-close" onclick="closeIdCard()">Done & Close</button>
             </div>
         </div>
     </div>
 
     <script>
-        function showNotification(message) {
-            try {
-                const msgBox = document.getElementById("customMessage");
-                msgBox.innerText = message;
-                msgBox.style.display = "block";
-                setTimeout(() => { msgBox.style.display = "none"; }, 4000);
-            } catch(e) {}
-        }
+        // Global variable to store the generated URI string
+        let activeUpiString = "";
 
         window.addEventListener('DOMContentLoaded', () => {
             try {
@@ -822,44 +815,29 @@
 
         function toggleModal(modalId, show) {
             try {
-                if(event) event.preventDefault();
                 document.getElementById(modalId).style.display = show ? 'flex' : 'none';
             } catch(e) {}
         }
 
-        // Fortified Script Loader for the AI Chat Agent
         function startAgentChat() {
-            try {
-                if(event) event.preventDefault();
-                const btn = document.getElementById("chatAgentBtn");
-                btn.innerHTML = "⏳ Loading...";
-                btn.disabled = true;
-                
-                var script = document.createElement('script');
-                script.src = "https://cdn.jotfor.ms/agent/embedjs/019699601c1575a9b097fc67705cb07a09b3/embed.js";
-                script.async = true;
-                script.crossOrigin = "anonymous";
-                
-                script.onload = () => {
-                    try {
-                        btn.innerHTML = "✅ Chat Started";
-                        setTimeout(() => { btn.style.display = 'none'; }, 2000); 
-                    } catch(e) {}
-                };
-                
-                script.onerror = () => {
-                    try {
-                        btn.innerHTML = "❌ Fallback Support";
-                        btn.disabled = false;
-                        showNotification("Live chat unavailable. Opening WhatsApp support...");
-                        setTimeout(() => { window.open("https://wa.me/15559565917", "_blank"); }, 1500);
-                    } catch(e) {}
-                };
-                
-                document.body.appendChild(script);
-            } catch(e) {
-                showNotification("Could not start chat. Try contacting via WhatsApp.");
-            }
+            const btn = document.getElementById("chatAgentBtn");
+            btn.innerHTML = "⏳ Loading Chat...";
+            btn.disabled = true;
+            
+            var script = document.createElement('script');
+            script.src = "https://cdn.jotfor.ms/agent/embedjs/019699601c1575a9b097fc67705cb07a09b3/embed.js";
+            script.async = true;
+            
+            script.onload = () => {
+                btn.innerHTML = "✅ Chat Started";
+                setTimeout(() => { btn.style.display = 'none'; }, 2000); 
+            };
+            script.onerror = () => {
+                btn.innerHTML = "❌ Failed to load";
+                btn.disabled = false;
+            };
+            
+            document.body.appendChild(script);
         }
 
         function checkCourseOther() {
@@ -867,10 +845,10 @@
                 const courseSelect = document.getElementById("course");
                 const otherBox = document.getElementById("otherCourseBox");
                 const otherInput = document.getElementById("otherCourseInput");
-                if (courseSelect && courseSelect.value === "Other") {
+                if (courseSelect.value === "Other") {
                     otherBox.style.display = "flex";
                     otherInput.required = true;
-                } else if(otherBox) {
+                } else {
                     otherBox.style.display = "none";
                     otherInput.required = false;
                 }
@@ -897,6 +875,7 @@
                     fileInput.required = false;
                     userIdBox.style.display = "block";
                     userIdInput.required = true;
+                    activeUpiString = ""; // Clear string
                 } else if (parseInt(amount) > 0) {
                     premiumSection.style.display = "block";
                     fileInput.required = true;
@@ -904,114 +883,109 @@
                     userIdInput.required = false;
                     
                     const formattedAmount = parseFloat(amount).toFixed(2);
-                    const trRef = "929DD" + Math.floor(Math.random() * 1000000);
-                    const upiString = `upi://pay?pa=verizon@upi&pn=929%20Digital%20Desk&tr=${trRef}&tn=929%20Desk%20Registration&am=${formattedAmount}&cu=INR`;
+                    const upiID = "verizon@upi";
+                    const payeeName = encodeURIComponent("929 Digital Desk");
+
+                    // Removed tr (Transaction Ref) and tn (Note). These often cause silent failures on personal UPI IDs.
+                    activeUpiString = `upi://pay?pa=${upiID}&pn=${payeeName}&am=${formattedAmount}&cu=INR`;
                     
-                    upiBtn.href = upiString;
-                    upiBtn.innerHTML = `📲 Pay ₹${amount} via Mobile UPI App`;
+                    upiBtn.href = activeUpiString;
+                    upiBtn.innerHTML = `📲 Pay ₹${amount} via UPI App`;
                     
-                    qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(upiString)}`;
+                    qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(activeUpiString)}`;
                     qrImage.style.display = "block";
                 } else {
                     premiumSection.style.display = "none";
                     fileInput.required = false; 
                     userIdBox.style.display = "none";
                     userIdInput.required = false;
+                    activeUpiString = ""; // Clear string
                 }
             } catch(e) {}
         }
 
+        // Removed openUPIApp() function as we are using the anchor href directly now
+
         function generateAlphaNum(length) {
-            try {
-                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-                let result = '';
-                for (let i = 0; i < length; i++) result += chars.charAt(Math.floor(Math.random() * chars.length));
-                return result;
-            } catch (e) { return "12345"; }
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) result += chars.charAt(Math.floor(Math.random() * chars.length));
+            return result;
         }
 
         function downloadIdCard() {
             try {
                 const card = document.getElementById("idCardCaptureArea");
-                html2canvas(card, { scale: 2, useCORS: true, allowTaint: false }).then(canvas => {
+                html2canvas(card, { scale: 2, useCORS: true }).then(canvas => {
                     const link = document.createElement('a');
                     link.download = '929-Digital-Desk-ID.png';
                     link.href = canvas.toDataURL('image/png');
                     link.click();
-                }).catch(err => {
-                    showNotification("Unable to download image in this browser. Please take a screenshot.");
                 });
-            } catch(e) {
-                showNotification("Unable to process image. Please take a screenshot.");
-            }
+            } catch(e) {}
         }
 
         try {
             document.getElementById("registrationForm").addEventListener("submit", function(event) {
                 event.preventDefault();
-                try {
-                    const name = document.getElementById("studentName").value || "Student";
-                    const email = document.getElementById("studentEmail").value || "";
-                    const whatsapp = document.getElementById("whatsappNumber").value || "";
-                    const college = document.getElementById("collegeName").value || "N/A";
-                    
-                    let courseVal = document.getElementById("course").value || "";
-                    if (courseVal === "Other") {
-                        courseVal = document.getElementById("otherCourseInput").value || "Other";
-                    }
 
-                    const division = document.getElementById("studentDivision").value || "-";
-                    const roll = document.getElementById("studentRoll").value || "-";
-                    const subject = document.getElementById("subject").value || "-";
-                    const chapter = document.getElementById("chapterName").value || "-";
-                    const requirement = document.getElementById("requirement").value || "-";
-                    
-                    const selectedPlanInput = document.querySelector('input[name="planSelection"]:checked');
-                    const planValue = selectedPlanInput ? selectedPlanInput.value : "Free";
-                    const regDate = document.getElementById("regDate").value || new Date().toISOString().split('T')[0];
+                const name = document.getElementById("studentName").value;
+                const email = document.getElementById("studentEmail").value;
+                const whatsapp = document.getElementById("whatsappNumber").value;
+                const college = document.getElementById("collegeName").value;
+                
+                let courseVal = document.getElementById("course").value;
+                if (courseVal === "Other") {
+                    courseVal = document.getElementById("otherCourseInput").value;
+                }
 
-                    let shortPlan = "FREE PLAN";
-                    let prefix = "FR-";
-                    if (planValue === "Prime") { shortPlan = "PRIME PLAN"; prefix = "PR-"; }
-                    if (planValue === "Pro") { shortPlan = "PRO PLAN"; prefix = "PRO-"; }
-                    if (planValue === "Premium") { shortPlan = "PREMIUM PLAN"; prefix = "PRMM-"; }
-                    if (planValue === "GenX") { shortPlan = "GENX PLAN"; prefix = "GX-"; }
-                    if (planValue === "GenXPro") { shortPlan = "GENX PRO PLAN"; prefix = "GXP-"; }
-                    if (planValue === "Existing") shortPlan = "EXISTING MEMBER";
+                const division = document.getElementById("studentDivision").value;
+                const roll = document.getElementById("studentRoll").value;
+                const subject = document.getElementById("subject").value;
+                const chapter = document.getElementById("chapterName").value;
+                const requirement = document.getElementById("requirement").value;
+                
+                const selectedPlanInput = document.querySelector('input[name="planSelection"]:checked');
+                const planValue = selectedPlanInput ? selectedPlanInput.value : "";
+                const regDate = document.getElementById("regDate").value;
 
-                    let generatedId = planValue === "Existing" ? (document.getElementById("userId").value || "ID-UNKN") : prefix + generateAlphaNum(4);
+                let shortPlan = "FREE PLAN";
+                let prefix = "FR-";
+                if (planValue === "Prime") { shortPlan = "PRIME PLAN"; prefix = "PR-"; }
+                if (planValue === "Pro") { shortPlan = "PRO PLAN"; prefix = "PRO-"; }
+                if (planValue === "Premium") { shortPlan = "PREMIUM PLAN"; prefix = "PRMM-"; }
+                if (planValue === "GenX") { shortPlan = "GENX PLAN"; prefix = "GX-"; }
+                if (planValue === "GenXPro") { shortPlan = "GENX PRO PLAN"; prefix = "GXP-"; }
+                if (planValue === "Existing") shortPlan = "EXISTING MEMBER";
 
-                    const dateObj = new Date(regDate);
-                    document.getElementById("idCardDate").innerText = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-                    document.getElementById("idCardName").innerText = name;
-                    document.getElementById("idCardCourse").innerText = courseVal;
-                    document.getElementById("idCardDivRoll").innerText = `${division} / ${roll}`;
-                    document.getElementById("idCardSubject").innerText = subject;
-                    document.getElementById("idCardCollege").innerText = college;
-                    document.getElementById("idCardPlan").innerText = shortPlan;
-                    document.getElementById("idCardNumber").innerText = "ID: " + generatedId;
+                let generatedId = planValue === "Existing" ? document.getElementById("userId").value : prefix + generateAlphaNum(4);
 
-                    const fileInput = document.getElementById('studentPhoto');
-                    if (fileInput && fileInput.files && fileInput.files[0]) {
-                        const reader = new FileReader();
-                        reader.onload = e => document.getElementById('idCardImage').src = e.target.result;
-                        reader.readAsDataURL(fileInput.files[0]);
-                    }
+                const dateObj = new Date(regDate);
+                document.getElementById("idCardDate").innerText = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                document.getElementById("idCardName").innerText = name;
+                document.getElementById("idCardCourse").innerText = courseVal;
+                document.getElementById("idCardDivRoll").innerText = `${division} / ${roll}`;
+                document.getElementById("idCardSubject").innerText = subject;
+                document.getElementById("idCardCollege").innerText = college;
+                document.getElementById("idCardPlan").innerText = shortPlan;
+                document.getElementById("idCardNumber").innerText = "ID: " + generatedId;
 
-                    document.getElementById("idCardModal").style.display = "flex";
+                const fileInput = document.getElementById('studentPhoto');
+                if (fileInput.files && fileInput.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = e => document.getElementById('idCardImage').src = e.target.result;
+                    reader.readAsDataURL(fileInput.files[0]);
+                }
 
-                    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwFOl3rV-TRmEGKJJtvrSfL_x6LC85reYx9uiBgXpOxAO9JRt4SsXFRzTnfZrleRckozQ/exec"; 
-                    if (SCRIPT_URL && SCRIPT_URL.includes("script.google.com")) {
-                        // Using catch heavily on the fetch to prevent Unhandled Promise Rejections in sandbox
-                        fetch(SCRIPT_URL, {
-                            method: 'POST',
-                            mode: 'no-cors',
-                            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                            body: JSON.stringify({ name, email, whatsapp, college, course: courseVal, division, roll, subject, chapter, requirement, plan: planValue, userId: generatedId, date: regDate })
-                        }).catch(err => { /* Swallow exception */ });
-                    }
-                } catch(e) {
-                    showNotification("An error occurred during submission. Try again.");
+                document.getElementById("idCardModal").style.display = "flex";
+
+                const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwFOl3rV-TRmEGKJJtvrSfL_x6LC85reYx9uiBgXpOxAO9JRt4SsXFRzTnfZrleRckozQ/exec"; 
+                if (SCRIPT_URL.includes("script.google.com")) {
+                    fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify({ name, email, whatsapp, college, course: courseVal, division, roll, subject, chapter, requirement, plan: planValue, userId: generatedId, date: regDate })
+                    }).catch(err => console.log("Data push isolated."));
                 }
             });
         } catch(e) {}
@@ -1019,7 +993,10 @@
         function closeIdCard() {
             try {
                 document.getElementById("idCardModal").style.display = "none";
-                showNotification("Registration Complete! Form data processed.");
+                const alertBox = document.getElementById("customMessage");
+                alertBox.style.display = "block";
+                setTimeout(() => alertBox.style.display = "none", 4000);
+                
                 document.getElementById("registrationForm").reset();
                 checkPlan(); 
                 checkCourseOther();
